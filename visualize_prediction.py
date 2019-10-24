@@ -294,7 +294,7 @@ def show_next(dataloader, model, LABEL):
         
     preds_concat=pd.concat([pd.Series(FINDINGS),pd.Series(predx),pd.Series(labels.numpy().astype(bool)[0])],axis=1)
     preds = pd.DataFrame(data=preds_concat)
-    preds.columns=["Finding","Predicted Probability","Ground Truth"]
+    preds.columns=["Finding","Error from NIH Dataset","Ground Truth"]
     preds.set_index("Finding",inplace=True)
     preds.sort_values(by='Predicted Probability',inplace=True,ascending=False)
     
